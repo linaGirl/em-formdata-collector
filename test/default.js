@@ -60,13 +60,13 @@
 		it('Should be able to collect mutlipart form data', function(done){	
 			service.use({request: function(request, response, next){
 				if (request.pathname === '/test1') {
-					request.getForm(function(data){
+					request.getForm(function(data) {
 						assert.equal('fb93818d01553e9fead6873b780580aefb93818d01553e9fead6873b780580aec239dddc9c7a19eef9af0052da451a8ac239dddc9c7a19eef9af0052da451a8a', checkMessage(data), 'extracted message is incorrect!');
 						done();
 						response.send(200);
 					});
 				}
-				next();
+				else next();
 			}});				
 
 			var   r = request.post('http://127.0.0.1:13015/test1')
@@ -88,6 +88,7 @@
 						response.send(200);
 					});
 				}
+				else next();
 			}});				
 
 			request.post('http://127.0.0.1:13015/test2', {form: {
