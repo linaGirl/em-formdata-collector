@@ -3,7 +3,8 @@
 	var   Class 		= require('ee-class')
 		, log 			= require('ee-log')
 		, assert 		= require('assert')
-		, travis 		= require('ee-travis');
+		, travis 		= require('ee-travis')
+		, fs 			= require('fs');
 
 
 
@@ -37,6 +38,8 @@
 			}
 			else hash += md5(message[key]);
 		});
+
+		//log(hash);
 
 		return hash;
 	}
@@ -98,8 +101,48 @@
 		});
 
 
+
+		it('Should be able to collect simple form data with numbers as identifiers', function(done){
+			service.use({request: function(request, response, next){
+				if (request.pathname === '/test3') {
+					request.getForm(function(data){
+						assert.equal('3e4d891a5df3d6d0d7dd9432a1bc6470', checkMessage(data), 'extracted message is incorrect!');
+						done();
+						response.send(200);
+					});
+				}
+				else next();
+			}});				
+
+			request.post('http://127.0.0.1:13015/test3', {form: {
+				  '6': 'accepted'
+			}});
+		});
+
+/*
+
+		it('Should be able to receive files', function(done){
+			service.use({request: function(request, response, next){
+				if (request.pathname === '/test4') {
+					request.getForm(function(data) { log(data);
+						assert.equal('3e4d891a5df3d6d0d7dd9432a1bc6470', checkMessage(data), 'extracted message is incorrect!');
+						done();
+						response.send(200);
+					});
+				}
+				else next();
+			}});
+
+
+			request.post('http://127.0.0.1:13015/test4', {
+				  headers: {'Content-Type':'multipart/form-data; boundary=------EB-Boundary34b0d451-f861-3ef3-8454'}
+				, body: fs.readFileSync(__dirname+'/msg8.mime').toString('ascii')
+			});
+		});
+*/
+
 		after(function(){
-			service.close();
+			//service.close();
 		});
 	});
 	
