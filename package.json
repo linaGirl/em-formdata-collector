@@ -1,11 +1,10 @@
 {
       "name"                        : "em-formdata-collector"
     , "description"                 : "Formdata collector middleware for ee-webservice"
-    , "version"                     : "0.2.3"
+    , "version"                     : "0.2.4"
     , "homepage"                    : "https://github.com/eventEmitter/em-formdata-collector"
     , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)" 
     , "licence"                     : "mit"
-    , "os"                          : "!win"
     , "repository": {
           "url"                     : "https://github.com/eventEmitter/em-formdata-collector.git"
         , "type"                    : "git"
@@ -20,6 +19,7 @@
           "ee-class"                : "1.0.x"
         , "ee-log"                  : "0.2.x"
         , "multiparty"              : "3.3.2"
+        , "ee-stream-collector"     : "0.1.x"
     }
     , "devDependencies": {
           "mocha"                   : "1.17.x"

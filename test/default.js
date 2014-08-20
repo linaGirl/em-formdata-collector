@@ -119,8 +119,8 @@
 			}});
 		});
 
-/*
 
+/*
 		it('Should be able to receive files', function(done){
 			service.use({request: function(request, response, next){
 				if (request.pathname === '/test4') {
@@ -135,8 +135,8 @@
 
 
 			request.post('http://127.0.0.1:13015/test4', {
-				  headers: {'Content-Type':'multipart/form-data; boundary=------EB-Boundary34b0d451-f861-3ef3-8454'}
-				, body: fs.readFileSync(__dirname+'/msg8.mime').toString('ascii')
+				  headers: {'Content-Type':'multipart/form-data; boundary=----WebKitFormBoundaryRllKRlFP5x7VqlPF'}
+				, body: fs.readFileSync(__dirname+'/msg8.mime')
 			});
 		});
 */
