@@ -11,7 +11,7 @@
 	var   Collector 	= require('../')
 		, Webservice 	= require('ee-webservice')
 		, request 		= require('request')	
-		, crypto 			= require('crypto');
+		, crypto 		= require('crypto');
 
 
 	var md5 = function(buf){
@@ -119,6 +119,25 @@
 			}});
 		});
 
+
+
+		it('Should be able to collect json data', function(done){
+			service.use({request: function(request, response, next){
+				if (request.pathname === '/test4') {
+					request.getForm(function(data){ 
+						assert.equal('fb93818d01553e9fead6873b780580aec239dddc9c7a19eef9af0052da451a8a', checkMessage(data), 'extracted message is incorrect!');
+						done();
+						response.send(200);
+					});
+				}
+				else next();
+			}});				
+
+			request.post('http://127.0.0.1:13015/test4', {headers: {'content-type': 'application/json'}, body: JSON.stringify({
+				  email: 'michael@joinbox.com'
+				, password: 'securePassword'
+			})});
+		});
 
 /*
 		it('Should be able to receive files', function(done){
