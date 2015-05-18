@@ -133,7 +133,7 @@
 				else next();
 			}});				
 
-			request.post('http://127.0.0.1:13015/test4', {headers: {'content-type': 'application/json'}, body: JSON.stringify({
+			request.post('http://127.0.0.1:13015/test4', {headers: {'content-type': 'application/json; desf'}, body: JSON.stringify({
 				  email: 'michael@joinbox.com'
 				, password: 'securePassword'
 			})});
