@@ -139,6 +139,23 @@
 			})});
 		});
 
+
+
+		it('Should be able to collect empty json data', function(done){
+			service.use({request: function(request, response, next){
+				if (request.pathname === '/test5') {
+					request.getForm(function(data){ 
+						assert(!Object.keys(data).length);
+						done();
+						response.send(200);
+					});
+				}
+				else next();
+			}});				
+
+			request.post('http://127.0.0.1:13015/test5', {headers: {'content-type': 'application/json; desf'}, body: ''});
+		});
+
 /*
 		it('Should be able to receive files', function(done){
 			service.use({request: function(request, response, next){
