@@ -1,37 +1,37 @@
 {
-      "name"                        : "em-formdata-collector"
-    , "description"                 : "Formdata collector middleware for ee-webservice"
-    , "version"                     : "0.2.9"
-    , "homepage"                    : "https://github.com/eventEmitter/em-formdata-collector"
-    , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)" 
-    , "licence"                     : "mit"
-    , "repository": {
-          "url"                     : "https://github.com/eventEmitter/em-formdata-collector.git"
-        , "type"                    : "git"
-    }
-    , "engines": {
-        "node"                      : ">=v0.10.17"
-    }
-    , "bugs": {
-        "url"                       : "https://github.com/eventEmitter/em-formdata-collector/issues"
-    }
-    , "dependencies": {
-          "ee-class"                : "1.0.x"
-        , "ee-log"                  : "0.2.x"
-        , "multiparty"              : "3.3.2"
-        , "ee-stream-collector"     : "0.1.x"
-    }
-    , "devDependencies": {
-          "mocha"                   : "1.17.x"
-        , "ee-travis"               : "0.1.x"
-        , "request"                 : "2.34.x"
-        , "ee-webservice"           : "0.3.x"
-        , "ee-project"              : "0.2.x"
-        , "ee-webserver"            : "0.3.x"
-    }
-    , "optionalDependencies": {}
-    , "keywords"                    : []
-    , "scripts": {
-        "test"                      : "./node_modules/mocha/bin/mocha --reporter spec"
+    "name": "em-formdata-collector",
+    "description": "Formdata collector middleware for ee-webservice",
+    "version": "0.2.10",
+    "homepage": "https://github.com/eventEmitter/em-formdata-collector",
+    "author": "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/eventEmitter/em-formdata-collector.git",
+        "type": "git"
+    },
+    "engines": {
+        "node": ">=v0.10.17"
+    },
+    "bugs": {
+        "url": "https://github.com/eventEmitter/em-formdata-collector/issues"
+    },
+    "dependencies": {
+        "ee-class": "1.x",
+        "ee-log": "2.x",
+        "ee-stream-collector": "0.1.x",
+        "multiparty": "^3.3.2"
+    },
+    "devDependencies": {
+        "mocha": "3.x",
+        "ee-travis": "0.1.x",
+        "request": "2.34.x",
+        "ee-webservice": "0.3.x",
+        "ee-project": "0.2.x",
+        "ee-webserver": "0.3.x"
+    },
+    "optionalDependencies": {},
+    "keywords": [],
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha --reporter spec"
     }
 }
